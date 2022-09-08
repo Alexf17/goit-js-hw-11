@@ -1,0 +1,37 @@
+.form {
+    display: flex;
+    justify-content: center;
+    
+}
+
+button.load-more {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 5px 10px;
+
+}
+
+a.pixabay {
+    margin: 0 auto;
+    display: table;
+    opacity: 0.3
+
+}
+
+input {
+    min-width: 200px;
+    min-height: 30px;
+    font-size: 25px;
+}
+
+button.imput {
+    width: 150px;
+    height: 30px;
+    font-size: 20px;
+    background-color: gold;
+}
+
+.photo-card {
+    background-color: azure
+}
