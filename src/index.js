@@ -3,42 +3,44 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import { fetchGallery } from './js/fetchgallery';
 import { Notify } from 'notiflix';
 import axios from 'axios';
+import  API from './js/fetchgallery'
 
-const refs = {
-  galleryWrap: document.querySelector('.gallery'),
-  form: document.querySelector('#search-form'),
-  loadMoreBtn: document.querySelector('.load-more'),
-};
+const Api = new API()
 
-let page = 1
-let perPage = 40
-let searchQuery = ''
+const galleryWrap = document.querySelector('.gallery')
+const form = document.querySelector('#search-form')
+const loadMoreBtn = document.querySelector('.load-more')
 
-refs.form.addEventListener('submit', onSearch)
-refs.loadMoreBtn.addEventListener('click', onLoadMore)
+
+// let page = 1
+// let perPage = 40
+
+
+form.addEventListener('submit', onSearch)
+loadMoreBtn.addEventListener('click', onLoadMore)
 
 async function onSearch(e) {
   e.preventDefault()
 
-  searchQuery = e.currentTarget.elements.searchQuery.value.trim()
-  console.log(searchQuery)
-  if (!searchQuery) {
+  Api.query = e.currentTarget.elements.searchQuery.value.trim()
+  console.log(Api.query )
+  if (!Api.query ) {
     
     Notify.warning('Please write something')
     clearGalleryMarkup()
-    searchQuery = null
+    Api.query  = ""
     return;
   }
-  const aaa = await fetchGallery(searchQuery, page, perPage)
-  console.log(aaa)
 
-  await createGalleryMarkup(aaa.data.hits)
-  refs.form.reset()
+  const responsApi = await Api.fetchGallery()
+  await createGalleryMarkup(responsApi.data.hits)
+  Api.resetPage()
+  form.reset()
 }
 
 function createGalleryMarkup(cards) {
   console.log(cards)
-  refs.galleryWrap.insertAdjacentHTML(
+  galleryWrap.insertAdjacentHTML(
     'beforeend',
     cards
       .map(
@@ -75,7 +77,11 @@ function createGalleryMarkup(cards) {
 }
 
 function clearGalleryMarkup() {
-  refs.galleryWrap.innerHTML = ""
+  galleryWrap.innerHTML = ""
 }
 
-function onLoadMore() {}
+async function onLoadMore() {
+  const responsApi = await Api.fetchGallery()
+  await createGalleryMarkup(responsApi.data.hits)
+
+}
