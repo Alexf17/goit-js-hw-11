@@ -1,7 +1,7 @@
 import axios from 'axios'
-export default class API {
+export default class PictureService {
   constructor() {
-    this.searchQuery = ''
+    this.searchQuery = " "
     this.page = 1
     this.perPage = 40
   }
@@ -21,6 +21,7 @@ export default class API {
   get query() {
     return this.searchQuery
   }
+  
   set query(newQuey) {
     this.searchQuery = newQuey
   }

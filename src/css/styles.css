@@ -1,7 +1,6 @@
 .form {
     display: flex;
-    justify-content: center;
-    
+    justify-content: center;  
 }
 
 button.load-more {
@@ -34,4 +33,12 @@ button.imput {
 
 .photo-card {
     background-color: azure
+}
+
+.gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    column-gap: 15px;
 }

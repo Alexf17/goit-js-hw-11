@@ -3,18 +3,13 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import { fetchGallery } from './js/fetchgallery';
 import { Notify } from 'notiflix';
 import axios from 'axios';
-import  API from './js/fetchgallery'
+import PictureService from './js/fetchgallery'
 
-const Api = new API()
+const pictureService = new PictureService()
 
 const galleryWrap = document.querySelector('.gallery')
 const form = document.querySelector('#search-form')
 const loadMoreBtn = document.querySelector('.load-more')
-
-
-// let page = 1
-// let perPage = 40
-
 
 form.addEventListener('submit', onSearch)
 loadMoreBtn.addEventListener('click', onLoadMore)
@@ -22,24 +17,26 @@ loadMoreBtn.addEventListener('click', onLoadMore)
 async function onSearch(e) {
   e.preventDefault()
 
-  Api.query = e.currentTarget.elements.searchQuery.value.trim()
-  console.log(Api.query )
-  if (!Api.query ) {
-    
+  clearGalleryMarkup()
+  pictureService.query = e.currentTarget.elements.searchQuery.value.trim()
+  console.log(pictureService.query)
+
+  if (!pictureService.query) {
+
     Notify.warning('Please write something')
     clearGalleryMarkup()
-    Api.query  = ""
+    // pictureService.query = ""
+    form.reset()
     return;
   }
 
-  const responsApi = await Api.fetchGallery()
-  await createGalleryMarkup(responsApi.data.hits)
-  Api.resetPage()
+  pictureService.resetPage()
+  const responspictureService = await pictureService.fetchGallery()
+  await createGalleryMarkup(responspictureService.data.hits)
   form.reset()
 }
 
 function createGalleryMarkup(cards) {
-  console.log(cards)
   galleryWrap.insertAdjacentHTML(
     'beforeend',
     cards
@@ -81,7 +78,7 @@ function clearGalleryMarkup() {
 }
 
 async function onLoadMore() {
-  const responsApi = await Api.fetchGallery()
-  await createGalleryMarkup(responsApi.data.hits)
+  const responspictureService = await pictureService.fetchGallery()
+  await createGalleryMarkup(responspictureService.data.hits)
 
 }
