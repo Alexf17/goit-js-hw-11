@@ -1,15 +1,28 @@
+ul {
+    list-style: none;
+    padding-left: 0px;
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.is-hidden {
+    visibility: hidden;
+}
+
 .form {
     display: flex;
     justify-content: center;  
+    background-image: url(../images/st01.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100px;
 }
 
-button.load-more {
-    display: block;
-    margin: 0 auto;
-    margin-top: 20px;
-    padding: 5px 10px;
 
-}
 
 a.pixabay {
     margin: 0 auto;
@@ -22,6 +35,7 @@ input {
     min-width: 200px;
     min-height: 30px;
     font-size: 25px;
+    border-radius: 8px;
 }
 
 button.imput {
@@ -29,16 +43,89 @@ button.imput {
     height: 30px;
     font-size: 20px;
     background-color: gold;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .photo-card {
-    background-color: azure
+    margin-left: 25px;
+    margin-top: 20px;
 }
 
-.gallery{
-    display: flex;
-    flex-direction: row;
+.gallery {
     flex-wrap: wrap;
-    gap: 10px;
-    column-gap: 15px;
+    align-items: center;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
 }
+
+.photo-card img {
+    width: 400px;
+    height: 300px;
+}
+
+
+.one {
+    background-image: url(../images/st01.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100%;
+    min-width: 640px;
+
+}
+
+.search-form {
+    margin-top: 10px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+    border-bottom-style: dotted;
+    font-size: 20px;
+}
+
+.photo-card p {
+    display: flex;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+button.load-more {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 5px 60px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color:goldenrod;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px #999;
+}
+
+button.load-more:hover {
+    background-color:gold;
+}
+
+button.load-more:active {
+    background-color:gold;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+}
+
+/* button.load-more {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 5px 10px;
+    border-radius: 8px;
+} */

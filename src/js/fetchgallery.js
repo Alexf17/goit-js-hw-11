@@ -11,11 +11,12 @@ export default class PictureService {
     const KEY = '29780363-e0273b64f82bba5b73a3e8070'
       try {
         const response = await axios.get(`?key=${KEY}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=${this.perPage}`)
-        this.page +=1
+        this.page += 1
         return response
       } catch (error) {
         console.log(error)
-      }
+    }
+    
   }
 
   get query() {
