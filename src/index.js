@@ -33,7 +33,7 @@ async function onSearch(e) {
 
   if (!pictureService.query) {
 
-    Notify.warning('Please write something')
+    Notify.warning('Please write something', OPTIONS_NOTIFLIX)
     clearGalleryMarkup()
     loadMoreBtn.classList.add('is-hidden')
     form.reset()

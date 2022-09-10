@@ -131,17 +131,18 @@ button.load-more:active {
 
 #go-top {
     position: fixed;
-    bottom: 25px;
+    bottom: 250px;
     right: 10px;
     cursor: pointer;
     display: none;
     width: 70px;
-    height: 25px;
+    height: 85px;
     background: #e4ea34;
     border-radius: 8px;
     text-align: center;
-    padding-top: 5px;
+    padding-top: 25px;
     font-size: 20px;
+    font-weight: 900;
 }
 
 #go-top:hover {
