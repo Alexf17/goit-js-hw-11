@@ -1,0 +1,2 @@
+$(document).ready((function(){$("body").append('<a href="#" id="go-top" title="GO UP!">GO<br>UP!</a>')})),$((function(){$.fn.scrollToTop=function(){$(this).hide().removeAttr("href"),$(window).scrollTop()>="350"&&$(this).fadeIn("slow");var o=$(this);$(window).scroll((function(){$(window).scrollTop()<="350"?$(o).fadeOut("slow"):$(o).fadeIn("slow")})),$(this).click((function(){$("html, body").animate({scrollTop:0},"slow")}))}})),$((function(){$("#go-top").scrollToTop()}));
+//# sourceMappingURL=index.2a28e5aa.js.map
