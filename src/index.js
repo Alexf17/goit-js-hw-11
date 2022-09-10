@@ -57,13 +57,13 @@ async function onSearch(e) {
 
 function createGalleryMarkup(cards) {
   console.log(cards)
-  if (cards.length < 40 && cards.length > 0) {
-    Notify.info(INFO_MASSAGE, OPTIONS_NOTIFLIX)
-    loadMoreBtn.classList.add('is-hidden')
-  } if (cards.length === 0) {
-    Notify.info(ERROR_MASSAGE, OPTIONS_NOTIFLIX)
-    loadMoreBtn.classList.add('is-hidden')
-  }
+  // if (cards.length < 40 && cards.length > 0) {
+  //   Notify.info(INFO_MASSAGE, OPTIONS_NOTIFLIX)
+  //   loadMoreBtn.classList.add('is-hidden')
+  // } if (cards.length === 0) {
+  //   Notify.info(ERROR_MASSAGE, OPTIONS_NOTIFLIX)
+  //   loadMoreBtn.classList.add('is-hidden')
+  // }
 
   galleryWrap.insertAdjacentHTML(
     'beforeend',
@@ -103,6 +103,17 @@ function createGalleryMarkup(cards) {
       .join('')
   )
   loadMoreBtn.classList.remove('is-hidden')
+  if (cards.length < 40 && cards.length > 0) {
+    Notify.info(INFO_MASSAGE, OPTIONS_NOTIFLIX)
+    loadMoreBtn.classList.add('is-hidden')
+  } if (cards.length === 0) {
+    Notify.info(ERROR_MASSAGE, OPTIONS_NOTIFLIX)
+    loadMoreBtn.classList.add('is-hidden')
+  }
+  // else {
+    // loadMoreBtn.classList.remove('is-hidden')
+  // }
+  
   
 }
 
