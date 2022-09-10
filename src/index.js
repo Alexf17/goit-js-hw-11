@@ -56,7 +56,7 @@ async function onSearch(e) {
 }
 
 function createGalleryMarkup(cards) {
-  console.log(cards)
+  // console.log(cards)
   // if (cards.length < 40 && cards.length > 0) {
   //   Notify.info(INFO_MASSAGE, OPTIONS_NOTIFLIX)
   //   loadMoreBtn.classList.add('is-hidden')

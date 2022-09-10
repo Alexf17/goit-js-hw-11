@@ -14,7 +14,7 @@ a {
 
 .form {
     display: flex;
-    justify-content: center;  
+    justify-content: center;
     background-image: url(../images/st01.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -28,7 +28,6 @@ a.pixabay {
     margin: 0 auto;
     display: table;
     opacity: 0.3
-
 }
 
 input {
@@ -106,18 +105,18 @@ button.load-more {
     text-decoration: none;
     outline: none;
     color: #fff;
-    background-color:goldenrod;
+    background-color: goldenrod;
     border: none;
     border-radius: 15px;
     box-shadow: 0 4px #999;
 }
 
 button.load-more:hover {
-    background-color:gold;
+    background-color: gold;
 }
 
 button.load-more:active {
-    background-color:gold;
+    background-color: gold;
     box-shadow: 0 2px #666;
     transform: translateY(2px);
 }
@@ -129,3 +128,22 @@ button.load-more:active {
     padding: 5px 10px;
     border-radius: 8px;
 } */
+
+#go-top {
+    position: fixed;
+    bottom: 25px;
+    right: 10px;
+    cursor: pointer;
+    display: none;
+    width: 70px;
+    height: 25px;
+    background: #e4ea34;
+    border-radius: 8px;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 20px;
+}
+
+#go-top:hover {
+    background: rgb(248, 244, 6);
+}
