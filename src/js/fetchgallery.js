@@ -16,7 +16,7 @@ export default class PictureService {
       } catch (error) {
         console.log(error)
     }
-    
+     
   }
 
   get query() {

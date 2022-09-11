@@ -124,6 +124,12 @@ function clearGalleryMarkup() {
 async function onLoadMore() {
 
   const responspictureService = await pictureService.fetchGallery()
+  console.log(pictureService.page)
   await createGalleryMarkup(responspictureService.data.hits)
+  if (pictureService.page === 13) {
+      Notify.info(INFO_MASSAGE, OPTIONS_NOTIFLIX)
+      loadMoreBtn.classList.add('is-hidden')
+      }
   lightbox.refresh()
 }
+ 
