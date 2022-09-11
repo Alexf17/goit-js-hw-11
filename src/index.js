@@ -6,6 +6,9 @@ import axios from 'axios';
 import PictureService from './js/fetchgallery'
 
 const pictureService = new PictureService()
+
+const CARDS_more_500 = `По вашему запросу было найдено ${responspictureService.data.total} совпадений, но показать сможем только 500 :) `
+const CARDS_under_500 = `По вашему запросу было найдено ${responspictureService.data.total} совпадений `
 const INFO_MASSAGE = "We're sorry, but you've reached the end of search results."
 const ERROR_MASSAGE = '"Sorry, there are no images matching your search query. Please try again."'
 const OPTIONS_NOTIFLIX = {
@@ -24,6 +27,7 @@ form.addEventListener('submit', onSearch)
 loadMoreBtn.addEventListener('click', onLoadMore)
 
 loadMoreBtn.classList.add('is-hidden')
+
 
 async function onSearch(e) {
   e.preventDefault()
@@ -44,9 +48,9 @@ async function onSearch(e) {
   const responspictureService = await pictureService.fetchGallery()
   await createGalleryMarkup(responspictureService.data.hits)
   if (responspictureService.data.total > 500) {
-    Notify.info(`По вашему запросу было найдено ${responspictureService.data.total} совпадений, но показать сможем только 500 :) `, OPTIONS_NOTIFLIX)
+    Notify.info(CARDS_more_500, OPTIONS_NOTIFLIX)
   } else {
-    Notify.info(`По вашему запросу было найдено ${responspictureService.data.total} совпадений `, OPTIONS_NOTIFLIX)
+    Notify.info(CARDS_under_500, OPTIONS_NOTIFLIX)
   }
   form.reset()
   lightbox = new SimpleLightbox(".gallery a", {
@@ -124,7 +128,6 @@ function clearGalleryMarkup() {
 async function onLoadMore() {
 
   const responspictureService = await pictureService.fetchGallery()
-  console.log(pictureService.page)
   await createGalleryMarkup(responspictureService.data.hits)
   if (pictureService.page === 13) {
       Notify.info(INFO_MASSAGE, OPTIONS_NOTIFLIX)
